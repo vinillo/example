@@ -21,9 +21,9 @@ class DefaultController extends Controller
         ));
     }
     /**
-     * @Route("/create", name="create")
+     * @Route("/create/{val}", name="create")
      */
-    public function createAction()
+    public function createAction($val)
     {
         $product = new Product();
         $product->setName('A Foo Bar');
@@ -37,29 +37,7 @@ class DefaultController extends Controller
 
         return new Response('Created product id '.$product->getId());
     }
-    /**
-     * @Route("/findid/{id}")
-     */
-   public function showAction($id)
-    {
-        $product = $this->getDoctrine()
-            ->getRepository('AppBundle:Product')
-            ->find($id);
-
-        if (!$product) {
-             return $this->render(
-        'lucky/number.html.twig',
-        array('luckyNumberList' => "Oh oh! 404 not found")
-    );
-        } else {
-
-         return $this->render(
-        'lucky/number.html.twig',
-        array('luckyNumberList' => $id)
-    );
-        }
-
+  
         
-    }
 
     }
