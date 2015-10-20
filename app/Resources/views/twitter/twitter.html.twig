@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<h1>twitter data var pass from controller: {{ twitter_data }}</h1>  
+	<!--twitter data var pass from controller: {{ value }} -->
+product naam: {{product.name}} is prijs -> {{product.price}}
+<h1>Twitter APP</h1>
+	<form action="" method="post" action="#">
+	<ul>
+		<li><input type="text" name="title" value="title value"></li>
+		<li><textarea rows="4" cols="50">post body here</textarea></li>
+		<li><input type="submit" name="title" value="twitter nu"></li>
+	</ul>
+	</form>
 {% endblock %}
 
 
