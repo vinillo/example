@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}Twitter Appie{% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -32,7 +33,7 @@
 		
 		<li><input type="text" name="title" value="#jouw topic titel"></li>
 		<li><textarea rows="4" cols="50">#jouw twitter bericht</textarea></li>
-		<li><input type="submit" name="title" value="twitter nu"></li>
+		<li><input type="submit" name="twitter_insert" value="twitter nu"></li>
 	</ul>
 	</form>
 		<span id="credit">&copy; copyright {{current_year}} twitter app - a simple sf2 web appie</span>

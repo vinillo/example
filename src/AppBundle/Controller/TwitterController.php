@@ -7,17 +7,31 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Classy\Requesty;
 
 
 class TwitterController extends Controller
 {
+
+      /**
+     * @Route("/requesty")
+     */
+public function requestieAction($val=null){
+       $requesty = new requesty(); 
+         echo $requesty->getGet("hello");
+         echo $requesty->getPost("hello");
+         exit;
+
+}
     /**
      * @Route("/twitter")
      * @Route("/twitter/") 
      * @Route("/twitter/{val}")
      */
-    public function indexAction($val=null)
+public function indexAction($val=null)
     {
+
+        $msg = null;
 //lame insert - for god knows what reason ^^
 /*  $product = new product();
             $product->setName('bobie')
@@ -27,6 +41,20 @@ class TwitterController extends Controller
     $em->persist($product);
     $em->flush();
     */
+
+//post alertie
+    if(isset($_POST['twitter_insert'])) {
+            $twitter = new twitter();
+            $twitter->setName('bobie')
+                    ->setPrice("10")
+                    ->setDescription("description hier");
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+            echo "inserted row";
+            exit;
+    }
+//end post alertie    
 //retrieve data   
   $product = new product(); 
   $repository = $this->getDoctrine()
@@ -44,7 +72,8 @@ class TwitterController extends Controller
         'twitter/twitter.html.twig',
         array('product' => $product,
             'value' => $val,
-            'current_year' => date("Y")
+            'current_year' => date("Y"),
+            'callback_msg' => $msg
         
              )
         );
