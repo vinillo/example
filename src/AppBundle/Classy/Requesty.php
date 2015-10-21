@@ -2,12 +2,27 @@
 namespace AppBundle\Classy;
 class Requesty
 {
-    //without any filtering etcccc
-    public function getPost($v){
+/*
+$r->getGet('foo') // => NULL (foo does not exist)
+$r->getGet('foo', 'bla') // => 'bla' (foo does not exist so return default value)
+*/
+
+  /*  public function Post($v){
+       if(isset($v)){
         return $_POST[$v];
+        }
+           else {
+            return "default_value";
+        }
     }
-    public function getGet($v){
-        return $_GET[$v];
+    */
+    //without any filtering etcccc 
+    public function Get($v){
+        if(isset($_GET[$v]) && $_GET[$v] != null){
+             return $_GET[$v];}
+        else {
+            return "default_value";
+        }
     }    
 
 }

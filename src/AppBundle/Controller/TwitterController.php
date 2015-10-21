@@ -16,10 +16,11 @@ class TwitterController extends Controller
       /**
      * @Route("/requesty")
      */
-public function requestieAction($val=null){
+public function requestieAction(){
        $requesty = new requesty(); 
-         echo $requesty->getGet("hello");
-         echo $requesty->getPost("hello");
+       // /requesty?hello=example
+         echo $requesty->Get("hello");
+         //echo $requesty->Post("hello");
          exit;
 
 }
