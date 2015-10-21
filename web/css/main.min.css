@@ -1,0 +1,37 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
+}
+h1 {
+	text-transform: uppercase;
+}
+#container {
+	max-width: 940px;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: #FFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px 20px 2px #C7BDBF;
+}
+.container_space {
+	padding: 10px;
+}
+li {
+	list-style-type: none;
+}
+input[type="text"] {
+	height: 35px;
+	max-width: 100%;
+	width: 100%;
+
+}
+textarea {
+	height: 350px;
+	max-width: 100%;
+	width: 100%;
+	margin-top: 5px;
+}

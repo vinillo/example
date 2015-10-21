@@ -30,7 +30,11 @@ class TwitterController extends Controller
   $repository = $this->getDoctrine()
     ->getRepository('AppBundle:Product');
 
+   //$product = $repository->find(10); based on primary key
    $product = $repository->find(10);
+   //$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
+   // $product = $repository->findAll($val); // find all
+
 
   
 //parse to twigie, pass $val with twigie
