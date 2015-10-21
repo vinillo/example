@@ -12,9 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 class TwitterController extends Controller
 {
     /**
+     * @Route("/twitter")
+     * @Route("/twitter/") 
      * @Route("/twitter/{val}")
      */
-    public function indexAction($val)
+    public function indexAction($val=null)
     {
 //lame insert - for god knows what reason ^^
 /*  $product = new product();
@@ -31,9 +33,9 @@ class TwitterController extends Controller
     ->getRepository('AppBundle:Product');
 
    //$product = $repository->find(10); based on primary key
-   $product = $repository->find(10);
+  // $product = $repository->find(10);
    //$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
-   // $product = $repository->findAll($val); // find all
+    $product = $repository->findAll($val); // find all
 
 
   
@@ -41,7 +43,8 @@ class TwitterController extends Controller
       return $this->render(
         'twitter/twitter.html.twig',
         array('product' => $product,
-            'value' => $val
+            'value' => $val,
+            'current_year' => date("Y")
         
              )
         );

@@ -4,28 +4,38 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-	<!--twitter data var pass from controller: {{ value }} -->
-<!-- product naam: {{product.name}} is prijs -> {{product.price}} -->
 <div id="container">
 
 	<div class="container_space">
 
 <h1>Twitter APP</h1>
+
 	       <ul class="breadcrumbs">
           <li><a href="">Home</a></li>
                   <li>/</li>
                   <li>Twitter</li>      
             </ul>
+<div class="clearfix"></div>
+<h2>Twitter Newsfeed:</h2>
+<div id="post_container">
+	<ul>
+	
+{% for p in product %}
+			<li>#twitter values hier: {{p.price}} -   {{p.description}}</li>
+{% endfor %}
+
+	</ul>
+</div>
+<h2>Post je eigen twitter bericht!</h2>
 	<form action="" method="post" action="#">
 	<ul>
-		{% for p in product %}
-			<li>naam: {{p.name}} && price {{p.price}} &&  {{p.description}}</li>
-		{% endfor %}
-		<li><input type="text" name="title" value="title value"></li>
-		<li><textarea rows="4" cols="50">post body here</textarea></li>
+		
+		<li><input type="text" name="title" value="#jouw topic titel"></li>
+		<li><textarea rows="4" cols="50">#jouw twitter bericht</textarea></li>
 		<li><input type="submit" name="title" value="twitter nu"></li>
 	</ul>
 	</form>
+		<span id="credit">&copy; copyright {{current_year}} twitter app - a simple sf2 web appie</span>
 	</div>
 </div>	
 {% endblock %}
