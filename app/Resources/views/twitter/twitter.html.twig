@@ -5,10 +5,17 @@
 {% endblock %}
 {% block body %}
 	<!--twitter data var pass from controller: {{ value }} -->
-product naam: {{product.name}} is prijs -> {{product.price}}
+<!-- product naam: {{product.name}} is prijs -> {{product.price}} -->
 <div id="container">
+
 	<div class="container_space">
+
 <h1>Twitter APP</h1>
+	       <ul class="breadcrumbs">
+          <li><a href="">Home</a></li>
+                  <li>/</li>
+                  <li>Twitter</li>      
+            </ul>
 	<form action="" method="post" action="#">
 	<ul>
 		{% for p in product %}

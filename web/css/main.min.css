@@ -27,11 +27,38 @@ input[type="text"] {
 	height: 35px;
 	max-width: 100%;
 	width: 100%;
+	color:#9D9D9D;
 
 }
 textarea {
-	height: 350px;
+	height: 150px;
 	max-width: 100%;
 	width: 100%;
 	margin-top: 5px;
+	color:#9D9D9D;
+    resize: none;	
+}
+.breadcrumbs {
+    float: left;
+    padding: 0px;
+}
+.breadcrumbs {
+	text-transform: lowercase;
+}
+.breadcrumbs li:first-child {
+    padding-left: 0px;
+    background: transparent none repeat scroll 0% 0%;
+}
+.breadcrumbs li {
+    float: left;
+    padding: 0px 6px 0px 0px;
+    font-size: 10px;
+}
+a:hover {
+    text-decoration: none;
+    color: #CF6033;
+}
+a {
+    color: #537FEF;
+    text-decoration: none;
 }
