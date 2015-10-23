@@ -7,6 +7,12 @@
             "": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vinillo/test"
+        }
+    ],
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
@@ -18,7 +24,10 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "symfony/http-foundation": "^2.7"
+        "symfony/http-foundation": "^2.7",
+        "beberlei/assert": "^2.4",
+        "symfony/finder": "^2.7",
+        "vinillo/test": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

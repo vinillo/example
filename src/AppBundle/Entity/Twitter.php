@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="product")
+ * @ORM\Table(name="twitter_posts")
  */
 class Twitter
 {
@@ -17,22 +17,102 @@ class Twitter
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostContent()
+    {
+        return $this->post_content;
+    }
+
+    /**
+     * @param mixed $post_content
+     */
+    public function setPostContent($post_content)
+    {
+        $this->post_content = $post_content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastEdit()
+    {
+        return $this->last_edit;
+    }
+
+    /**
+     * @param mixed $last_edit
+     */
+    public function setLastEdit($last_edit)
+    {
+        $this->last_edit = $last_edit;
+    }
+
+    /**
+     * @ORM\Column(type="text")
      */
     protected $title;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     *@ORM\Column(type="text")
      */
     protected $post_content;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="integer")
      */
     protected $created;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="integer")
      */
     protected $last_edit;
 }

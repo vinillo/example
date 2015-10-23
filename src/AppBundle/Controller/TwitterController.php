@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Classy\Requesty;
 
@@ -44,7 +45,24 @@ public function indexAction($val=null)
     */
 
 //post alertie
+    $request = new request();
+     $form = $this->createFormBuilder()
+        // ...
+        ->getForm();
+
+            $form->handleRequest($request);
+
+    if ($form->isValid()) {
+        // perform some action...
+
+        return $this->redirectToRoute('task_success');
+    }
+
+    
     if(isset($_POST['twitter_insert'])) {
+                var_dump($request->request->get('twitter_insert', 'twitter_insert'));
+        exit;   
+
             $twitter = new twitter();
             $twitter->setName('bobie')
                     ->setPrice("10")
