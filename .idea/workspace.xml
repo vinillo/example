@@ -43,8 +43,10 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TwitterController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.14673515">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <element signature="e#39#96#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -261,7 +263,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2582" height="1576" extended-state="6" />
+    <frame x="-11" y="-11" width="2582" height="1576" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -447,8 +449,10 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TwitterController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14673515">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#39#96#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
