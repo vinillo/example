@@ -15,6 +15,25 @@ class Twitter
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $title;
+
+    /**
+     *@ORM\Column(type="text")
+     */
+    protected $post_content;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $last_edit;
 
     /**
      * @return mixed
@@ -96,23 +115,5 @@ class Twitter
         $this->last_edit = $last_edit;
     }
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    protected $title;
 
-    /**
-     *@ORM\Column(type="text")
-     */
-    protected $post_content;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $created;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $last_edit;
 }

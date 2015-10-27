@@ -1,44 +1,60 @@
 {% extends 'base.html.twig' %}
 {% block title %}Twitter Appie{% endblock %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-<div id="container">
+    <div id="container">
 
-	<div class="container_space">
+        <div class="container_space">
 
-<h1>Twitter APP</h1>
+            <h1>Twitter APP</h1>
 
-	       <ul class="breadcrumbs">
-          <li><a href="">Home</a></li>
-                  <li>/</li>
-                  <li>Twitter</li>      
+            <ul class="breadcrumbs">
+                <li><a href="">Home</a></li>
+                <li>/</li>
+                <li>Twitter</li>
             </ul>
-<div class="clearfix"></div>
-<h2>Twitter Newsfeed:</h2>
-<div id="post_container">
-	<ul>
-	
-{% for p in product %}
-			<li>#twitter values hier: {{p.price}} -   {{p.description}}</li>
-{% endfor %}
+            <div class="clearfix"></div>
+            <h2>Twitter Newsfeed:</h2>
 
-	</ul>
-</div>
-<h2>Post je eigen twitter bericht!</h2>
-	<form action="" method="post" action="#">
-	<ul>
-		
-		<li><input type="text" name="title" value="#jouw topic titel"></li>
-		<li><textarea name="twitter_bericht" rows="4" cols="50">#jouw twitter bericht</textarea></li>
-		<li><input type="submit" name="twitter_insert" value="twitter nu"></li>
-	</ul>
-	</form>
-		<span id="credit">&copy; copyright {{current_year}} twitter app - a simple sf2 web appie</span>
-	</div>
-</div>	
+            <div id="post_container">
+                <ul>
+
+                    {% for p in product %}
+                        <li>#twitter values hier: {{ p.price }} - {{ p.description }}</li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <h2>Post je eigen twitter bericht!</h2>
+
+            <form action="" method="post" action="#">
+
+                <ul>
+
+                    <li>
+                        {% block form_widget_simple %}
+                        {{ form_label(twitter_form.title) }}
+                        {{ form_errors(twitter_form.title) }}
+                        {{ form_widget(twitter_form.title) }}
+                    </li>
+                    <li>
+                        {{ form_label(twitter_form.postcontent) }}
+                        {{ form_errors(twitter_form.postcontent) }}
+                        {{ form_widget(twitter_form.postcontent) }}
+                    </li>
+                    <li>
+                        {{ form_widget(twitter_form.Postit) }}
+                    </li>
+
+                    {% endblock form_widget_simple %}
+                </ul>
+            </form>
+            <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
+        </div>
+    </div>
 {% endblock %}
 
 
