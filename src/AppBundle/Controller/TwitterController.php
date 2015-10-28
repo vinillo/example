@@ -12,22 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Classy\Requesty;
 
 
-
 class TwitterController extends Controller
 {
-
-    /**
-     * @Route("/requesty")
-     */
-    public function requestieAction()
-    {
-        $requesty = new requesty();
-        // /requesty?hello=example
-        echo $requesty->Get("hello");
-        //echo $requesty->Post("hello");
-        exit;
-
-    }
 
     /**
      * @Route("/twitter")
@@ -39,52 +25,65 @@ class TwitterController extends Controller
         $twitter = new Twitter();
         $twitter->setTitle('#titel hier');
         $twitter->setPostContent('#twitter bericht hier');
-        $form = $this->createForm(new TwitterType(), $twitter);
-
-
+        $form = $this->createForm(new TwitterType(), $twitter, array(
+            'action' => "",
+            'method' => 'POST',
+        ));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            return $this->redirect("twitter");
+            return $this->forward('AppBundle:Twitter:thankyou', array(
+                    'personname' => $twitter->getTitle()
+                ));
         }
 
-
-        /*
-        if (isset($_POST['twitter_insert'])) {
-
-
-            $twitter = new twitter();
-            $twitter->setName('bobie')
-                ->setPrice("10")
-                ->setDescription("description hier");
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($product);
-            $em->flush();
-            echo "inserted row";
-            exit;
-        }
-        */
-//end post alertie    
-//retrieve data   
-        $product = new product();
+//retrieve data
         $repository = $this->getDoctrine()
-            ->getRepository('AppBundle:Product');
+            ->getRepository('AppBundle:Twitter');
 
-        //$product = $repository->find(10); based on primary key
-        // $product = $repository->find(10);
-        //$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
-        $product = $repository->findAll($val); // find all
+        $twitter = $repository->findAll(); // find all
 
 
-//parse to twigie, pass $val with twigie
+        //parse to twigie, pass $val with twigie
         return $this->render(
             'twitter/twitter.html.twig',
-            array('product' => $product,
+            array('data_twitter' => $twitter,
                 'value' => $val,
                 'current_year' => date("Y"),
                 'twitter_form' => $form->createView(),
             ));
-
-
+    }
+    /**
+     * @Route("/thankyou")
+     * @Route("/thankyou/")
+     */
+    public
+    function thankyouAction($personname)
+    {
+        return $this->render(
+            'twitter/success.html.twig',
+            array('personname' => $personname,
+            ));
     }
 }
+/*
+   if (isset($_POST['twitter_insert'])) {
+
+
+       $twitter = new twitter();
+       $twitter->setName('bobie')
+           ->setPrice("10")
+           ->setDescription("description hier");
+       $em = $this->getDoctrine()->getManager();
+       $em->persist($product);
+       $em->flush();
+       echo "inserted row";
+       exit;
+   }
+   */
+//end post alertie
+
+
+//$product = $repository->find(10); based on primary key
+// $product = $repository->find(10);
+//$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
