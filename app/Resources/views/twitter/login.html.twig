@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Twitter Appie{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block body %}
+    <div id="container">
+        <div class="container_space">
+            <h1>Twitter APP</h1>
+            <ul class="breadcrumbs">
+                <li><a href="">Home</a></li>
+                <li>/</li>
+                <li><li><a href="twitter">Twitter</a></li>
+                <li>/</li>
+                <li>inloggen</li>
+            </ul>
+            <div class="clearfix"></div>
+            <h2> inloggen</h2>
+            <div class="boxie">
+
+            </div>
+            <div class="clearfix"></div>
+            <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
+        </div>
+    </div>
+{% endblock %}
+
+
+

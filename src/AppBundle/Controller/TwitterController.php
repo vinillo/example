@@ -33,9 +33,9 @@ class TwitterController extends Controller
 
         if ($form->isValid()) {
             return $this->forward('AppBundle:Twitter:thankyou', array(
-                    'getTitle' => $twitter->getTitle(),
-                    'getPostContent' => $twitter->getPostContent(),
-                ));
+                'getTitle' => $twitter->getTitle(),
+                'getPostContent' => $twitter->getPostContent(),
+            ));
         }
 //retrieve data
         $repository = $this->getDoctrine()
@@ -50,12 +50,13 @@ class TwitterController extends Controller
                 'twitter_form' => $form->createView(),
             ));
     }
+
     /**
      * @Route("/thankyou")
      * @Route("/thankyou/")
      */
     public
-    function thankyouAction($getTitle,$getPostContent)
+    function thankyouAction($getTitle, $getPostContent)
     {
 
         $twitter = new twitter();
@@ -73,23 +74,31 @@ class TwitterController extends Controller
                 'current_year' => date("Y"),
             ));
     }
+
+    /**
+     * @Route("/register")
+     * @Route("/register/")
+     */
+    public
+    function register()
+    {
+        return $this->render(
+            'twitter/register.html.twig',
+            array('current_year' => date("Y"),
+            ));
+    }
+
+    /**
+     * @Route("/login")
+     * @Route("/login/")
+     */
+    public
+    function login()
+    {
+        return $this->render(
+            'twitter/login.html.twig',
+            array('current_year' => date("Y"),
+            ));
+    }
+
 }
-/*
-   if (isset($_POST['twitter_insert'])) {
-
-
-       $twitter = new twitter();
-       $twitter->setName('bobie')
-           ->setPrice("10")
-           ->setDescription("description hier");
-       $em = $this->getDoctrine()->getManager();
-       $em->persist($product);
-       $em->flush();
-       echo "inserted row";
-       exit;
-   }
-   */
-//end post alertie
-//$product = $repository->find(10); based on primary key
-// $product = $repository->find(10);
-//$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
