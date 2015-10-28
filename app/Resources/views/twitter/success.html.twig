@@ -5,7 +5,28 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-{{ getTitle }} => title $_post example 
+    <div id="container">
+        <div class="container_space">
+            <h1>Twitter APP</h1>
+            <ul class="breadcrumbs">
+                <li><a href="">Home</a></li>
+                <li>/</li>
+                <li><li><a href="twitter">Twitter</a></li>
+                <li>/</li>
+                <li>Bericht geplaatst</li>
+            </ul>
+            <div class="clearfix"></div>
+            <h2>Twitter Appie</h2>
+                <div class="boxie">
+                    <img src="{{ asset('images/green_checky.png') }}" alt="green_check_succes" />
+                    <h2>Super! Je bericht met titel: <span class="color_green">{{ getTitle }}</span> is gepost!</h2>
+                    <br>
+                    => bericht {{ getPostContent }}
+                </div>
+            <div class="clearfix"></div>
+            <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
+        </div>
+    </div>
 {% endblock %}
 
 

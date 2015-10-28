@@ -14,12 +14,10 @@ class TwitterType extends AbstractType
             ->add('postcontent', 'textarea')
             ->add('Postit', 'submit');
     }
-
     public function getName()
     {
         return 'twitter';
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(

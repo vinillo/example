@@ -1,10 +1,3 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-mcm_demo_homepage:
-    pattern: /
-    defaults: {controller: AppBundle:Default:index}
-
-mcm_demo_thankyou:
-    pattern: /thank-you
-    defaults: {controller: AppBundle:Default:index}

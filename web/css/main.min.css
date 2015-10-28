@@ -78,11 +78,20 @@ a {
 }
 
 #post_container ul li {
-	height: 25px;
-	font-size: 16px;
+	min-height: 25px;
+	font-size: 12px;
 	font-weight: bold;
 }
 
 #post_container li:nth-child(even) {background: #CCC;}
 #post_container li:nth-child(odd) {background: #FFFF;}
 #credit {color:#9D9D9D; text-transform: lowercase; }
+.boxie {
+	border: 1px solid #D3D3D3;
+	padding: 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	}
+.color_green {
+	color: #66dd66;
+}

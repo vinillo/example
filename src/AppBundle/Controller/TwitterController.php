@@ -33,17 +33,14 @@ class TwitterController extends Controller
 
         if ($form->isValid()) {
             return $this->forward('AppBundle:Twitter:thankyou', array(
-                    'getTitle' => $twitter->getTitle()
+                    'getTitle' => $twitter->getTitle(),
+                    'getPostContent' => $twitter->getPostContent(),
                 ));
         }
-
 //retrieve data
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:Twitter');
-
         $twitter = $repository->findAll(); // find all
-
-
         //parse to twigie, pass $val with twigie
         return $this->render(
             'twitter/twitter.html.twig',
@@ -58,11 +55,22 @@ class TwitterController extends Controller
      * @Route("/thankyou/")
      */
     public
-    function thankyouAction($getTitle)
+    function thankyouAction($getTitle,$getPostContent)
     {
+
+        $twitter = new twitter();
+        $twitter->setPostContent($getPostContent);
+        $twitter->setTitle($getTitle);
+        $twitter->setCreated(time());
+        $twitter->setLastEdit($getTitle);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($twitter);
+        $em->flush();
         return $this->render(
             'twitter/success.html.twig',
             array('getTitle' => $getTitle,
+                'getPostContent' => $getPostContent,
+                'current_year' => date("Y"),
             ));
     }
 }
@@ -82,8 +90,6 @@ class TwitterController extends Controller
    }
    */
 //end post alertie
-
-
 //$product = $repository->find(10); based on primary key
 // $product = $repository->find(10);
 //$product = $repository->findOneByName($val); // search by column  value. findOneByName (Name -> col name)
