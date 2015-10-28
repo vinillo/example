@@ -33,7 +33,7 @@ class TwitterController extends Controller
 
         if ($form->isValid()) {
             return $this->forward('AppBundle:Twitter:thankyou', array(
-                    'personname' => $twitter->getTitle()
+                    'getTitle' => $twitter->getTitle()
                 ));
         }
 
@@ -58,11 +58,11 @@ class TwitterController extends Controller
      * @Route("/thankyou/")
      */
     public
-    function thankyouAction($personname)
+    function thankyouAction($getTitle)
     {
         return $this->render(
             'twitter/success.html.twig',
-            array('personname' => $personname,
+            array('getTitle' => $getTitle,
             ));
     }
 }
