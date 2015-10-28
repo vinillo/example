@@ -17,9 +17,25 @@
             </ul>
             <div class="clearfix"></div>
             <h2> inloggen</h2>
-            <div class="boxie">
-
-            </div>
+                <div class="boxie">
+                    <ul>
+                        <li>
+                            {% block form_widget_simple %}
+                            {{ form_start(login_form) }}
+                            {{ form_errors(login_form.username) }}
+                            {{ form_widget(login_form.username) }}
+                        </li>
+                        <li>
+                            {{ form_errors(login_form.password) }}
+                            {{ form_widget(login_form.password) }}
+                        </li>
+                        <li>
+                            {{ form_widget(login_form.Inloggen) }}
+                        </li>
+                        {{ form_end(login_form) }}
+                        {% endblock form_widget_simple %}
+                    </ul>
+                </div>
             <div class="clearfix"></div>
             <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
         </div>

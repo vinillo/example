@@ -1,20 +1,21 @@
 <?php
 namespace AppBundle\Controller;
-
+use AppBundle\Form\Type\RegisterType;
+use AppBundle\Form\Type\LoginType;
 use AppBundle\Form\Type\TwitterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Register;
+use AppBundle\Entity\Login;
 use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Classy\Requesty;
 
-
 class TwitterController extends Controller
 {
-
     /**
      * @Route("/twitter")
      * @Route("/twitter/")
@@ -58,7 +59,6 @@ class TwitterController extends Controller
     public
     function thankyouAction($getTitle, $getPostContent)
     {
-
         $twitter = new twitter();
         $twitter->setPostContent($getPostContent);
         $twitter->setTitle($getTitle);
@@ -80,25 +80,40 @@ class TwitterController extends Controller
      * @Route("/register/")
      */
     public
-    function register()
+    function register(Request $request)
     {
+        $register = new Register();
+        $register->setUsername('username');
+        $register->setPassword('password');
+        $register->setEmail('vincent.provo@tactics.be');
+        $form = $this->createForm(new RegisterType(), $register, array(
+            'action' => "",
+            'method' => 'POST',
+        ));
         return $this->render(
             'twitter/register.html.twig',
             array('current_year' => date("Y"),
+                'register_form' => $form->createView(),
             ));
     }
-
     /**
      * @Route("/login")
      * @Route("/login/")
      */
     public
-    function login()
+    function login(Request $request)
     {
+        $login = new Login();
+        $login->setUsername('username');
+        $login->setPassword('password');
+        $form = $this->createForm(new LoginType(), $login, array(
+            'action' => "",
+            'method' => 'POST',
+        ));
         return $this->render(
             'twitter/login.html.twig',
             array('current_year' => date("Y"),
+                  'login_form' => $form->createView(),
             ));
     }
-
 }
