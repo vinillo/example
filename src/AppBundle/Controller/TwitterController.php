@@ -50,6 +50,7 @@ class TwitterController extends Controller
                 'twitter_form' => $form->createView(),
             ));
     }
+
     /**
      * @Route("/thankyou")
      * @Route("/thankyou/")
@@ -72,6 +73,7 @@ class TwitterController extends Controller
                 'current_year' => date("Y"),
             ));
     }
+
     /**
      * @Route("/created")
      * @Route("/created/")
@@ -93,6 +95,7 @@ class TwitterController extends Controller
                 'current_year' => date("Y"),
             ));
     }
+
     /**
      * @Route("/verifyLogin")
      * @Route("/verifyLogin/")
@@ -107,18 +110,19 @@ class TwitterController extends Controller
             ->from('AppBundle:Account', 'f')
             ->where('f.username = :username',
                 'f.password = :password')
-
             ->setParameter('username', $getUsername)
             ->setParameter('password', strtoupper(sha1($getUsername . ":" . $getPassword)))
-
             ->getQuery();
 
         $total = $query->getSingleScalarResult();
-    if($total >= 1) {
-        die("logged in");
-    } else {
-        die("wrong credentials"." <b>username:</b> ".$getUsername ." <b>-------</b> <b>pass:</b> ".strtoupper(sha1($getUsername . ":" . $getPassword)));
-    }
+        if ($total >= 1) {
+            return $this->render(
+                'twitter/account.html.twig',
+                array('current_year' => date("Y"),
+                ));
+        } else {
+            die("wrong credentials" . " <b>username:</b> " . $getUsername . " <b>-------</b> <b>pass:</b> " . strtoupper(sha1($getUsername . ":" . $getPassword)));
+        }
         return $this->render(
             'twitter/success_created.html.twig',
             array('getUsername' => $getUsername,
@@ -156,6 +160,7 @@ class TwitterController extends Controller
                 'register_form' => $form->createView(),
             ));
     }
+
     /**
      * @Route("/login")
      * @Route("/login/")
