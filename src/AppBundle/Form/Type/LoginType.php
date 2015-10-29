@@ -14,14 +14,16 @@ class LoginType extends AbstractType
             ->add('password', 'password')
             ->add('Inloggen', 'submit');
     }
+
     public function getName()
     {
         return 'login';
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Login',
+            'data_class' => 'AppBundle\Entity\Account',
         ));
     }
 }

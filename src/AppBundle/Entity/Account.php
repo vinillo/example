@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="accounts")
  */
-class Register
+class Account
 {
     /**
      * @ORM\Column(type="integer")
@@ -27,6 +27,7 @@ class Register
      * @ORM\Column(type="text")
      */
     protected $email;
+
     /**
      * @return mixed
      */
@@ -90,7 +91,4 @@ class Register
     {
         $this->email = $email;
     }
-
-
-
 }

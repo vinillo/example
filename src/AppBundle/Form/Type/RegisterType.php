@@ -15,14 +15,16 @@ class RegisterType extends AbstractType
             ->add('email', 'text')
             ->add('Registreren', 'submit');
     }
+
     public function getName()
     {
         return 'register';
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Register',
+            'data_class' => 'AppBundle\Entity\Account',
         ));
     }
 }
