@@ -12,6 +12,7 @@ use AppBundle\Entity\Account;
 use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Classy\Requesty;
+use Doctrine\ORM\EntityRepository;
 
 class TwitterController extends Controller
 {
@@ -81,11 +82,46 @@ class TwitterController extends Controller
     {
         $account = new account();
         $account->setUsername($getUsername);
-        $account->setPassword(strtoupper(sha1($getUsername . ":" . $getPassword.":".$getEmail)));
+        $account->setPassword(strtoupper(sha1($getUsername . ":" . $getPassword)));
         $account->setEmail($getEmail);
         $em = $this->getDoctrine()->getManager();
         $em->persist($account);
         $em->flush();
+        return $this->render(
+            'twitter/success_created.html.twig',
+            array('getUsername' => $getUsername,
+                'getEmail' => $getEmail,
+                'current_year' => date("Y"),
+            ));
+    }
+    /**
+     * @Route("/verifyLogin")
+     * @Route("/verifyLogin/")
+     */
+    public
+    function verifyLoginAction($getUsername, $getPassword)
+    {
+        $account = new account();
+        $query = $this->createQueryBuilder()
+            ->select('COUNT(f.id)')
+            ->from('accounts', 'f')
+            ->where('accounts.username = :id')
+            ->where('accounts.password = :password')
+            ->setParameter('id', $getUsername)
+            ->setParameter('password', strtoupper(sha1($getUsername . ":" . $getPassword)))
+            ->getQuery();
+
+
+        //
+
+        //
+
+        $total = $query->getSingleScalarResult();
+    if($total >= 1) {
+        die("logged in");
+    } else {
+        die("wrong credentials");
+    }
         return $this->render(
             'twitter/success_created.html.twig',
             array('getUsername' => $getUsername,
@@ -137,6 +173,13 @@ class TwitterController extends Controller
             'action' => "",
             'method' => 'POST',
         ));
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            return $this->forward('AppBundle:Twitter:verifyLogin', array(
+                'getUsername' => $account->getUsername(),
+                'getPassword' => $account->getPassword(),
+            ));
+        }
         return $this->render(
             'twitter/login.html.twig',
             array('current_year' => date("Y"),
