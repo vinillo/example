@@ -11,8 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Account;
 use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Classy\Requesty;
-use Doctrine\ORM\EntityRepository;
+
 
 class TwitterController extends Controller
 {
@@ -102,25 +101,23 @@ class TwitterController extends Controller
     function verifyLoginAction($getUsername, $getPassword)
     {
         $account = new account();
-        $query = $this->createQueryBuilder()
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQueryBuilder()
             ->select('COUNT(f.id)')
-            ->from('accounts', 'f')
-            ->where('accounts.username = :id')
-            ->where('accounts.password = :password')
-            ->setParameter('id', $getUsername)
+            ->from('AppBundle:Account', 'f')
+            ->where('f.username = :username',
+                'f.password = :password')
+
+            ->setParameter('username', $getUsername)
             ->setParameter('password', strtoupper(sha1($getUsername . ":" . $getPassword)))
+
             ->getQuery();
-
-
-        //
-
-        //
 
         $total = $query->getSingleScalarResult();
     if($total >= 1) {
         die("logged in");
     } else {
-        die("wrong credentials");
+        die("wrong credentials"." <b>username:</b> ".$getUsername ." <b>-------</b> <b>pass:</b> ".strtoupper(sha1($getUsername . ":" . $getPassword)));
     }
         return $this->render(
             'twitter/success_created.html.twig',
