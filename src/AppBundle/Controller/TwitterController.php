@@ -50,7 +50,6 @@ class TwitterController extends Controller
                 'twitter_form' => $form->createView(),
             ));
     }
-
     /**
      * @Route("/thankyou")
      * @Route("/thankyou/")
@@ -73,7 +72,6 @@ class TwitterController extends Controller
                 'current_year' => date("Y"),
             ));
     }
-
     /**
      * @Route("/created")
      * @Route("/created/")
@@ -125,7 +123,6 @@ class TwitterController extends Controller
                 'register_form' => $form->createView(),
             ));
     }
-
     /**
      * @Route("/login")
      * @Route("/login/")
