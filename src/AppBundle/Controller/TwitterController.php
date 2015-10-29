@@ -8,8 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Product;
-use AppBundle\Entity\Register;
-use AppBundle\Entity\Login;
+use AppBundle\Entity\Account;
 use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Classy\Requesty;
@@ -38,7 +37,7 @@ class TwitterController extends Controller
                 'getPostContent' => $twitter->getPostContent(),
             ));
         }
-//retrieve data
+        //retrieve data
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:Twitter');
         $twitter = $repository->findAll(); // find all
@@ -53,9 +52,9 @@ class TwitterController extends Controller
     }
 
     /**
-     * @Route("/thankyou")
-     * @Route("/thankyou/")
-     */
+ * @Route("/thankyou")
+ * @Route("/thankyou/")
+ */
     public
     function thankyouAction($getTitle, $getPostContent)
     {
@@ -74,6 +73,27 @@ class TwitterController extends Controller
                 'current_year' => date("Y"),
             ));
     }
+    /**
+     * @Route("/created")
+     * @Route("/created/")
+     */
+    public
+    function createdAction($getUsername, $getPassword,$getEmail)
+    {
+        $account = new account();
+        $account->setUsername($getUsername);
+        $account->setPassword(strtoupper(sha1($getUsername.":".$getPassword)));
+        $account->setEmail($getEmail);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($account);
+        $em->flush();
+        return $this->render(
+            'twitter/success.html.twig',
+            array('getUsername' => $getUsername,
+                'getEmail' => $getEmail
+                'current_year' => date("Y"),
+            ));
+    }
 
     /**
      * @Route("/register")
@@ -82,14 +102,24 @@ class TwitterController extends Controller
     public
     function register(Request $request)
     {
-        $register = new Register();
-        $register->setUsername('username');
-        $register->setPassword('password');
-        $register->setEmail('vincent.provo@tactics.be');
-        $form = $this->createForm(new RegisterType(), $register, array(
+        $account = new Account();
+        $account->setUsername('username');
+        $account->setPassword('password');
+        $account->setEmail('vincent.provo@tactics.be');
+        $form = $this->createForm(new RegisterType(),  $account, array(
             'action' => "",
             'method' => 'POST',
         ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            return $this->forward('AppBundle:Twitter:created', array(
+                'getUsername' =>  $account->getUsername(),
+                'getPassword' =>  $account->getPassword(),
+                'getEmail' =>  $account->getEmail(),
+            ));
+        }
         return $this->render(
             'twitter/register.html.twig',
             array('current_year' => date("Y"),
@@ -103,10 +133,10 @@ class TwitterController extends Controller
     public
     function login(Request $request)
     {
-        $login = new Login();
-        $login->setUsername('username');
-        $login->setPassword('password');
-        $form = $this->createForm(new LoginType(), $login, array(
+        $account = new Login();
+        $account->setUsername('username');
+        $account->setPassword('password');
+        $form = $this->createForm(new LoginType(),  $account, array(
             'action' => "",
             'method' => 'POST',
         ));
