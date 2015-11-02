@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Twitter Appie {% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<div id="container">
+    <div class="container_space">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie - <a
+                    href="{{ asset('/login') }}""">inloggen</a>
+            - <a href="{{ asset('/register') }}">registeren</a>  - <a href="{{ asset('/login') }}">account</a></span>
+    </div>
+</div>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

@@ -7,31 +7,7 @@ if(!file_exists(getcwd()."/test.conf.php")){
 }
 exit;
 
-// 1 POST en GET bevatten enkele dingen bv post hello => world
-//									       get  yow   => dude		
 
-// Wanneer we een request aanmaken dmv ::createFromGlobals
-
-// En we vragen de post parameter voor hello op, dan krijgen we world te zien
-// En we vragen de get parameter voor yow op, dan krijgen we dude te zien
-
-// wanneer we nadien een nieuwe value in POST stoppen bla => bla
-// En we vragen de post parameter voor bla op, dan krijgen we NULL
-
-/*
-$_POST['hello']  = "world";
-$_GET['yow'] = "dude";
-
-$r1 = Requesty::createFromGlobals();
-
-echo 'world === ' . $r1->Post('hello') . "\n";
-
-echo 'dude === ' . $r1->Get('yow') . "\n";
-
-$_POST['bla'] = null;
-
-echo ' === ' . $r1->Post("a");
-*/
 
 
 

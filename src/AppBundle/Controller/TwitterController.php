@@ -12,7 +12,6 @@ use AppBundle\Entity\Account;
 use AppBundle\Entity\Twitter;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class TwitterController extends Controller
 {
     /**
@@ -162,6 +161,7 @@ class TwitterController extends Controller
     }
 
     /**
+     * @Route("login")
      * @Route("/login")
      * @Route("/login/")
      */
