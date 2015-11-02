@@ -28,5 +28,5 @@ security:
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(css|js), roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(_wdt|_profiler), roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/twitter, roles: ROLE_USER }
+        - { path: ^/twitter, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/account, roles: ROLE_USER }

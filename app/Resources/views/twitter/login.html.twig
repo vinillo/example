@@ -15,6 +15,11 @@
     <div class="boxie">
         <ul>
             <li>
+                {% if msg is defined %}
+                   <div class="msg_red"> {{ msg }}</div>
+                {% endif %}
+            </li>
+            <li>
                 {% block form_widget_simple %}
                 {{ form_start(login_form) }}
                 {{ form_errors(login_form.username) }}

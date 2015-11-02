@@ -115,12 +115,15 @@ class TwitterController extends Controller
 
         $total = $query->getSingleScalarResult();
         if ($total >= 1) {
+            //logged in
             return $this->render(
                 'twitter/account.html.twig',
                 array('current_year' => date("Y"),
                 ));
         } else {
-            die("wrong credentials" . " <b>username:</b> " . $getUsername . " <b>-------</b> <b>pass:</b> " . strtoupper(sha1($getUsername . ":" . $getPassword)));
+            //wrong password/username
+            //die("wrong username/password");
+            return $this->redirect('/login/wrong-credentials');;
         }
         return $this->render(
             'twitter/success_created.html.twig',
@@ -164,9 +167,10 @@ class TwitterController extends Controller
      * @Route("login")
      * @Route("/login")
      * @Route("/login/")
+     * @Route("/login/{w}")
      */
     public
-    function loginAction(Request $request)
+    function loginAction(Request $request, $w)
     {
         $account = new Account();
         $account->setUsername('username');
@@ -182,10 +186,22 @@ class TwitterController extends Controller
                 'getPassword' => $account->getPassword(),
             ));
         }
-        return $this->render(
-            'twitter/login.html.twig',
-            array('current_year' => date("Y"),
-                'login_form' => $form->createView(),
-            ));
+        if (isset($w)) {
+            return $this->render(
+                'twitter/login.html.twig',
+                array('current_year' => date("Y"),
+                    'login_form' => $form->createView(),
+                    'msg' => "Wrong credentials",
+
+                ));
+        } else {
+            return $this->render(
+                'twitter/login.html.twig',
+                array('current_year' => date("Y"),
+                    'login_form' => $form->createView(),
+                    'msg' => "everything ok",
+
+                ));
+        }
     }
 }
