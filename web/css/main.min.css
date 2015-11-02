@@ -1,132 +1,169 @@
 body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 11px;
-	background-color: #F5F8FA;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    background-color: #F5F8FA;
 }
+
 h1 {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
+
 #container {
-	max-width: 940px;
-	width: 100%;
-	margin: 0 auto;
-	margin-top: 10px;
-	background-color: #FFF;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	box-shadow: 2px 2px 20px 2px #C7BDBF;
+    max-width: 940px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #FFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 2px 2px 20px 2px #C7BDBF;
 }
+
 .container_space {
-	padding: 10px;
+    padding: 10px;
 }
+
 li {
-	list-style-type: none;
+    list-style-type: none;
 }
+
 input[type="text"] {
-	 height: 35px;
-	 max-width: 850px;
-	 width: 100%;
-	 color:#9D9D9D;
-	border: solid #D3D3D3 1px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	margin-top:5px;
-	padding-left: 5px;
- }
+    height: 35px;
+    max-width: 850px;
+    width: 100%;
+    color: #9D9D9D;
+    border: solid #D3D3D3 1px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
 input[type="password"] {
-	height: 35px;
-	max-width: 850px;
-	width: 100%;
-	color:#9D9D9D;
-	border: solid #D3D3D3 1px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	margin-top:5px;
-	padding-left: 5px;
+    height: 35px;
+    max-width: 850px;
+    width: 100%;
+    color: #9D9D9D;
+    border: solid #D3D3D3 1px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 5px;
+    padding-left: 5px;
 }
+
 textarea {
-	height: 150px;
-	max-width: 850px;
-	width: 100%;
-	margin-top: 5px;
-	color:#9D9D9D;
+    height: 150px;
+    max-width: 850px;
+    width: 100%;
+    margin-top: 5px;
+    color: #9D9D9D;
     resize: none;
-	border: solid #D3D3D3 1px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	margin-top:5px;
-	padding-left: 5px;
+    border: solid #D3D3D3 1px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 5px;
+    padding-left: 5px;
 }
+
 .breadcrumbs {
     float: left;
     padding: 0px;
 }
+
 .breadcrumbs {
-	text-transform: lowercase;
+    text-transform: lowercase;
 }
+
 .breadcrumbs li:first-child {
     padding-left: 0px;
     background: transparent none repeat scroll 0% 0%;
 }
+
 .breadcrumbs li {
     float: left;
     padding: 0px 6px 0px 0px;
     font-size: 10px;
 }
+
 a:hover {
     text-decoration: none;
     color: #CF6033;
 }
+
 a {
     color: #537FEF;
     text-decoration: none;
 }
+
 #post_container {
-	max-height: 350px;
-	max-width: 900px;
-	width: 100%;
-	border: solid 1px #C4C2C2;
-	overflow: auto;
+    max-height: 350px;
+    max-width: 900px;
+    width: 100%;
+    border: solid 1px #C4C2C2;
+    overflow: auto;
 
 }
+
 .clearfix {
-	width: 100%;
-	height: 1px;
-	clear: both;
+    width: 100%;
+    height: 1px;
+    clear: both;
 }
 
 #post_container ul li {
-	min-height: 25px;
-	font-size: 12px;
-	font-weight: bold;
+    min-height: 25px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-#post_container li:nth-child(even) {background: #CCC;}
-#post_container li:nth-child(odd) {background: #FFFF;}
-#credit {color:#9D9D9D; text-transform: lowercase; }
+#post_container li:nth-child(even) {
+    background: #CCC;
+}
+
+#post_container li:nth-child(odd) {
+    background: #FFFF;
+}
+
+#credit {
+    color: #9D9D9D;
+    text-transform: lowercase;
+}
+
 .boxie {
-	border: 1px solid #eeeeee;
-	padding: 5px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	}
+    border: 1px solid #eeeeee;
+    padding: 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
 .color_green {
-	color: #66dd66;
+    color: #66dd66;
 }
+
 .ait_submit {
-	width: 250px;
-	font-weight: bold;
-	height: 50px;
-	border: 1px solid #eeeeee;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	margin-top: 5px;
-	color: #565656;
+    width: 250px;
+    font-weight: bold;
+    height: 50px;
+    border: 1px solid #eeeeee;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 5px;
+    color: #565656;
 }
+
 .ait_submit:hover {
-	color: #313131;
-	cursor: pointer;
-	background-color: #dfdfdf;
+    color: #313131;
+    cursor: pointer;
+    background-color: #dfdfdf;
+}
+.msg_red {
+    color:red;
+    height: 30px;
+    max-width: 750px;
+    width: 100%;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    font-weight: bold;
 }
