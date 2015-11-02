@@ -13,7 +13,10 @@ class RegisterType extends AbstractType
             ->add('username', 'text')
             ->add('password', 'password')
             ->add('email', 'text')
-            ->add('Registreren', 'submit');
+            ->add('Registreren', 'submit', array(
+                'attr' =>
+                    array('class' => 'ait_submit')
+            ));
     }
 
     public function getName()

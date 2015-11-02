@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block title %}Twitter Appie{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-    <h1>Twitter APP</h1>
     <ul class="breadcrumbs">
         <li><a href="{{ asset('/') }}">Home</a></li>
         <li>/</li>
@@ -37,7 +35,6 @@
         </ul>
     </div>
     <div class="clearfix"></div>
-    <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
 {% endblock %}
 
 

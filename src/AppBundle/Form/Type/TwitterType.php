@@ -12,7 +12,10 @@ class TwitterType extends AbstractType
         $builder
             ->add('title', 'text')
             ->add('postcontent', 'textarea')
-            ->add('Postit', 'submit');
+            ->add('Postit', 'submit', array(
+                'attr' =>
+                    array('class' => 'ait_submit')
+            ));
     }
     public function getName()
     {
