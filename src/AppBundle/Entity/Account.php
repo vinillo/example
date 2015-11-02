@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Account
 {
+    public function __construct()
+    {
+        // your own logic
+        $this->roles = array('ROLE_USER');
+    }
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

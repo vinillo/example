@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Account;
 use AppBundle\Entity\Twitter;
+use AppBundle\Entity\Role;
 use Symfony\Component\HttpFoundation\Request;
 
 class TwitterController extends Controller
@@ -116,6 +117,10 @@ class TwitterController extends Controller
         $total = $query->getSingleScalarResult();
         if ($total >= 1) {
             //logged in
+            $role = new Role();
+            $role->setName(strtoupper($getUsername));
+            $role->setRole('ROLE_USER');
+
             return $this->redirect('/account');;
         } else {
             //wrong password/username
@@ -184,7 +189,7 @@ class TwitterController extends Controller
     function loginAction(Request $request, $w = null)
     {
         $account = new Account();
-        $account->setUsername('username');
+        $account->setUsername('vin');
         $account->setPassword('password');
         $form = $this->createForm(new LoginType(), $account, array(
             'action' => "",
