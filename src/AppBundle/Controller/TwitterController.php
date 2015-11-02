@@ -135,7 +135,7 @@ class TwitterController extends Controller
      * @Route("/register/")
      */
     public
-    function register(Request $request)
+    function registerAction(Request $request)
     {
         $account = new Account();
         $account->setUsername('username');
@@ -166,7 +166,7 @@ class TwitterController extends Controller
      * @Route("/login/")
      */
     public
-    function login(Request $request)
+    function loginAction(Request $request)
     {
         $account = new Account();
         $account->setUsername('username');

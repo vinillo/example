@@ -1,24 +1,32 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
 security:
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER, ROLE_EVENT_CREATE, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        our_database_users:
+            entity: { class: AppBundle:Account }
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        main:
+        secured_area:
+            pattern:    ^/
+            form_login:
+                check_path: login_check
+                login_path: app_twitter_login
+            logout:
+                path:   logout
+                target: event
             anonymous: ~
-            # activate different ways to authenticate
+            switch_user: ~
+            remember_me:
+                key: "Order 1138"
+            #http_basic:
+            #    realm: "Secured Demo Area"
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(css|js), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(_wdt|_profiler), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/twitter, roles: ROLE_USER }
+        - { path: ^/account, roles: ROLE_USER }
