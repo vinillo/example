@@ -6,42 +6,42 @@
 {% endblock %}
 {% block body %}
 
-            <h1>Twitter APP</h1>
-            <ul class="breadcrumbs">
-                <li><a href="">Home</a></li>
-                <li>/</li>
-                <li>Twitter</li>
-            </ul>
-            <div class="clearfix"></div>
-            <h2>Twitter Newsfeed:</h2>
-            <div id="post_container">
-                <ul>
-                    {% for p in data_twitter %}
-                        <li>#twitter uit `twitter_posts` table values hier: {{ p.title }} - id: {{ p.id }} -
-                            created: {{ p.created }} - last_edit: {{ p.lastedit }} -
-                            post_content: {{ p.postcontent }} </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <h2>Post je eigen twitter bericht!</h2>
-                <ul>
-                    <li>
-                        {% block form_widget_simple %}
-                        {{ form_start(twitter_form) }}
-                        {{ form_errors(twitter_form.title) }}
-                        {{ form_widget(twitter_form.title) }}
-                    </li>
-                    <li>
-                        {{ form_errors(twitter_form.postcontent) }}
-                        {{ form_widget(twitter_form.postcontent) }}
-                    </li>
-                    <li>
-                        {{ form_widget(twitter_form.Postit) }}
-                    </li>
-                    {{ form_end(twitter_form) }}
-                    {% endblock form_widget_simple %}
-                </ul>
- {% endblock %}
+    <h1>Twitter APP</h1>
+    <ul class="breadcrumbs">
+        <li><a href="{{ asset('/') }}">Home</a></li>
+        <li>/</li>
+        <li><a href="{{ asset('/twitter') }}">Twitter</li>
+    </ul>
+    <div class="clearfix"></div>
+    <h2>Twitter Newsfeed:</h2>
+    <div id="post_container">
+        <ul>
+            {% for p in data_twitter %}
+                <li>#twitter uit `twitter_posts` table values hier: {{ p.title }} - id: {{ p.id }} -
+                    created: {{ p.created }} - last_edit: {{ p.lastedit }} -
+                    post_content: {{ p.postcontent }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <h2>Post je eigen twitter bericht!</h2>
+    <ul>
+        <li>
+            {% block form_widget_simple %}
+            {{ form_start(twitter_form) }}
+            {{ form_errors(twitter_form.title) }}
+            {{ form_widget(twitter_form.title) }}
+        </li>
+        <li>
+            {{ form_errors(twitter_form.postcontent) }}
+            {{ form_widget(twitter_form.postcontent) }}
+        </li>
+        <li>
+            {{ form_widget(twitter_form.Postit) }}
+        </li>
+        {{ form_end(twitter_form) }}
+        {% endblock form_widget_simple %}
+    </ul>
+{% endblock %}
 
 
 

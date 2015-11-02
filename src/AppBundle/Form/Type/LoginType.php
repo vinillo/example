@@ -12,7 +12,10 @@ class LoginType extends AbstractType
         $builder
             ->add('username', 'text')
             ->add('password', 'password')
-            ->add('Inloggen', 'submit');
+            ->add('Inloggen', 'submit', array(
+                'attr' =>
+                    array('class' => 'ait_submit')
+            ));
     }
 
     public function getName()

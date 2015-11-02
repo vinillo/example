@@ -5,36 +5,34 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-            <h1>Twitter APP</h1>
-            <ul class="breadcrumbs">
-                <li><a href="">Home</a></li>
-                <li>/</li>
-                <li><li><a href="twitter">Twitter</a></li>
-                <li>/</li>
-                <li>inloggen</li>
-            </ul>
-            <div class="clearfix"></div>
-            <h2> inloggen</h2>
-                <div class="boxie">
-                    <ul>
-                        <li>
-                            {% block form_widget_simple %}
-                            {{ form_start(login_form) }}
-                            {{ form_errors(login_form.username) }}
-                            {{ form_widget(login_form.username) }}
-                        </li>
-                        <li>
-                            {{ form_errors(login_form.password) }}
-                            {{ form_widget(login_form.password) }}
-                        </li>
-                        <li>
-                            {{ form_widget(login_form.Inloggen) }}
-                        </li>
-                        {{ form_end(login_form) }}
-                        {% endblock form_widget_simple %}
-                    </ul>
-                </div>
-            <div class="clearfix"></div>
+    <h1>Twitter APP</h1>
+    <ul class="breadcrumbs">
+        <li><a href="{{ asset('/') }}">Home</a></li>
+        <li>/</li>
+        <li>login</li>
+    </ul>
+    <div class="clearfix"></div>
+    <h2> inloggen</h2>
+    <div class="boxie">
+        <ul>
+            <li>
+                {% block form_widget_simple %}
+                {{ form_start(login_form) }}
+                {{ form_errors(login_form.username) }}
+                {{ form_widget(login_form.username) }}
+            </li>
+            <li>
+                {{ form_errors(login_form.password) }}
+                {{ form_widget(login_form.password) }}
+            </li>
+            <li>
+                {{ form_widget(login_form.Inloggen) }}
+            </li>
+            {{ form_end(login_form) }}
+            {% endblock form_widget_simple %}
+        </ul>
+    </div>
+    <div class="clearfix"></div>
 {% endblock %}
 
 

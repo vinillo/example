@@ -5,24 +5,23 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block body %}
-            <h1>Twitter APP</h1>
-            <ul class="breadcrumbs">
-                <li><a href="">Home</a></li>
-                <li>/</li>
-                <li><li><a href="twitter">Twitter</a></li>
-                <li>/</li>
-                <li>account</li>
-            </ul>
-            <div class="clearfix"></div>
-            <div class="boxie">
-                <img src="{{ asset('images/account_panel.png') }}" alt="green_check_succes" />
-                <h2><h3>Welkom</h3>
-                    <br>Super! Je ben nu op je account paneel! <a href="#">Logout</a>
-                <br>
+    <h1>Twitter APP</h1>
+    <ul class="breadcrumbs">
+        <li><a href="{{ asset('/') }}">Home</a></li>
+        <li>/</li>
+        <li>account</li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="boxie">
+        <img src="{{ asset('images/account_panel.png') }}" alt="green_check_succes"/>
 
-            </div>
-            <div class="clearfix"></div>
-            <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
+        <h2><h3>Welkom</h3>
+            <br>Super! Je ben nu op je account paneel! <a href="#">Logout</a>
+            <br>
+
+    </div>
+    <div class="clearfix"></div>
+    <span id="credit">&copy; copyright {{ current_year }} twitter app - a simple sf2 web appie</span>
 {% endblock %}
 
 
