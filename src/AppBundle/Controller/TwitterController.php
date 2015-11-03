@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TwitterController extends Controller
 {
     /**
-     * @Route("/twitter")
+     * @Route("/twitter" , name="twitter")
      * @Route("/twitter/")
      * @Route("/twitter/{val}")
      */

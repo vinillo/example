@@ -12,10 +12,10 @@ security:
             pattern:    ^/
             form_login:
                 check_path: login_check
-                login_path: app_twitter_login
+                login_path: logina
             logout:
                 path:   logout
-                target: event
+                target: twitter
             anonymous: ~
             switch_user: ~
             remember_me:
