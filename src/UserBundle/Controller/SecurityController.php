@@ -4,14 +4,16 @@ namespace UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-/**
- * @Route("/login", name="login_form")
- */
-class SecurityController
-{
-    public function loginAction()
-    {
 
+class SecurityController extends Controller
+{
+    /**
+     * @Route("/logina")
+     * @Route("/logina/")
+     */
+    public function loginaAction()
+    {
+        return "cake";
     }
 
 }

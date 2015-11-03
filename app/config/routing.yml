@@ -4,6 +4,6 @@ app:
 app:
     resource: "@AppBundle/Controller/TwitterController:login"
     type:     annotation
-app:
+a:
     resource: "@UserBundle/Controller/"
     type:     annotation
